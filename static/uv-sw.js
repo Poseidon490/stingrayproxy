@@ -1,5 +1,4 @@
 importScripts("/static/uv/uv.sw.js");
-importScripts("/static/paywall.js");
 
 const sw = new UVServiceWorker();
 
