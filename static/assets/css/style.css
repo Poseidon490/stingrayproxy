@@ -47,10 +47,7 @@ body {
   cursor: pointer;
   font-size: 16px;
   transition: color 0.3s;
-  transform: rotate(0deg);
   position: relative;
-  width: 30px;
-  height: 30px;
 }
 
 .arrow:before,
@@ -58,21 +55,22 @@ body {
   content: "";
   position: absolute;
   background-color: #fff;
-  width: 3px;
-  height: 10px;
-  border-radius: 2px;
 }
 
 .arrow:before {
-  top: 8px;
-  left: 12px;
-  transform: rotate(-45deg);
+  width: 10px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .arrow:after {
-  top: 8px;
-  left: 16px;
-  transform: rotate(45deg);
+  width: 10px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .arrow:hover {
@@ -85,11 +83,8 @@ body {
   color: #fff;
   cursor: pointer;
   font-size: 16px;
-  margin-right: 10px;
   transition: color 0.3s;
   position: relative;
-  width: 30px;
-  height: 30px;
 }
 
 .refresh:before,
@@ -97,24 +92,24 @@ body {
   content: "";
   position: absolute;
   background-color: #fff;
-  width: 3px;
+  width: 10px;
   height: 10px;
-  border-radius: 2px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .refresh:before {
-  top: 8px;
-  left: 12px;
   animation: refresh-animate 1s infinite linear;
-  transform-origin: center center;
 }
 
 @keyframes refresh-animate {
   0% {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
