@@ -17,8 +17,11 @@ function openTab(event, tabId) {
 
 function addNewTab() {
   const tabList = document.getElementById('sortable');
-  const tabButton = document.createElement('button');
+  const tabButtons = document.getElementsByClassName('tab');
+  const tabCount = tabButtons.length + 1;
   const newTabId = `tab${tabCount}`;
+
+  const tabButton = document.createElement('button');
   tabButton.className = 'tab';
   tabButton.setAttribute('onclick', `openTab(event, '${newTabId}')`);
   tabButton.innerHTML = `Tab ${tabCount} <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
@@ -32,7 +35,15 @@ function addNewTab() {
         </div>`;
   document.querySelector('.tab-content').appendChild(tabPanel);
 
-  tabCount++;
+  for (let i = 0; i < tabButtons.length; i++) {
+    const buttonTabId = tabButtons[i].getAttribute('onclick').match(/'([^']+)'/)[1];
+    const newButtonTabId = `tab${i + 1}`;
+    tabButtons[i].setAttribute('onclick', `openTab(event, '${newButtonTabId}')`);
+    tabButtons[i].innerHTML = `Tab ${i + 1} <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
+
+    const tabContent = document.getElementById(buttonTabId);
+    tabContent.id = newButtonTabId;
+  }
 }
 
 function closeTab(event) {
