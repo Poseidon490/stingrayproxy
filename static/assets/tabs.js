@@ -23,7 +23,7 @@ function addNewTab() {
   const newTabId = `tab${tabCount}`;
   tabButton.className = 'tab';
   tabButton.setAttribute('onclick', `openTab(event, '${newTabId}')`);
-  tabButton.innerHTML = `Tab ${tabCount} <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
+  tabButton.innerHTML = `<span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
   tabList.appendChild(tabButton);
 
   const tabPanel = document.createElement('div');
@@ -54,4 +54,3 @@ document.getElementById('tab1').addEventListener('click', (event) => {
 
 // Event listener for the "Add Tab" button
 document.querySelector('.add-tab-button').addEventListener('click', addNewTab);
-
