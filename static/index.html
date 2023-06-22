@@ -17,6 +17,10 @@
         <button class="refresh"><i class="fas fa-sync-alt"></i></button>
       </div>
       <input type="text" class="url-bar" placeholder="Enter URL">
+      <form id="uv-form">
+            <input id="uv-search-engine" value="" type="hidden"/> 
+            <input id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input"/>
+          </form>
       <div class="actions">
         <button class="action-button settings"><i class="fas fa-cog"></i></button>
         <button class="action-button new-tab"><i class="fas fa-external-link-alt"></i></button>
@@ -29,11 +33,6 @@
     </div>
     <div class="tab-content">
       <div id="home" class="tab-panel active">
-        <div class="search-container">
-         <form id="uv-form">
-            <input id="uv-search-engine" value="" type="hidden"/> 
-            <input id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input"/>
-          </form>
           <div class="desc left-margin">
             <p id="uv-error"></p>
             <pre id="uv-error-code"></pre>
