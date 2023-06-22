@@ -1,23 +1,26 @@
 /* tabs.css */
+:root {
+  --primary-color: #1C1D20;
+  --secondary-color: #616161;
+  --text-color: #fff;
+  --button-color: rgba(255, 255, 255, 0.08);
+  --active-tab-color: var(--secondary-color);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: all 0.3s ease;
 }
 
 body {
   background-image: url(https://e1.pxfuel.com/desktop-wallpaper/933/394/desktop-wallpaper-sand-dunes-desert-landscape-evening-windows-10x-nature-blue-sand.jpg);
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
-
-.tab {
-  border: none;
-  outline: none;
-}
-
 
 .browser {
   display: flex;
@@ -27,62 +30,45 @@ body {
 
 .sidebar {
   width: 220px;
-  background-color: #1C1D20;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 20px;
 }
 
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.arrow {
+.arrow, .refresh {
   background-color: transparent;
   border: none;
-  color: #fff;
+  color: var(--text-color);
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .refresh {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 .url-bar {
   width: 100%;
   height: 40px;
-  padding: 0px 12px;
-  margin-bottom: 10px;
+  padding: 0 15px;
+  margin-bottom: 20px;
   border: none;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.08);
-  color: #000;
-}
-
-.actions {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: var(--button-color);
+  color: var(--text-color);
 }
 
 .action-button {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--button-color);
   border: none;
-  color: #fff;
+  color: var(--text-color);
   cursor: pointer;
   padding: 10px;
   width: 60px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .tabs {
@@ -90,27 +76,27 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 .tab {
   display: flex;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin-bottom: 5px;
+  background-color: var(--button-color);
+  color: var(--text-color);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
 .tab.active {
-  background-color: #616161;
+  background-color: var(--active-tab-color);
 }
 
 .close-button {
   margin-left: auto;
-  color: #fff;
+  color: var(--text-color);
   cursor: pointer;
   opacity: 0;
 }
@@ -120,38 +106,25 @@ body {
 }
 
 .add-tab-button {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--button-color);
   border: none;
-  color: #fff;
+  color: var(--text-color);
   cursor: pointer;
-  padding: 5px;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.tab-content {
-  flex-grow: 1;
   padding: 10px;
-  color: #fff;
-}
-
-.search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
 .search-bar {
   background-color: rgba(255, 255, 255, 0.7);
   border: none;
-  border-radius: 8px;
-  padding: 10px;
+  border-radius: 15px;
+  padding: 15px;
   width: 758px;
   height: 80px;
   color: #635f5f;
-  font-size: 24px;
-  font-family: "Plus" Jakarta Sans;
+  font-size: 28px;
+  font-family: "Plus Jakarta Sans";
   font-weight: 600;
   letter-spacing: -0.24px;
 }
