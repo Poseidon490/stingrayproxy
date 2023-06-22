@@ -1,7 +1,7 @@
 window.location.href = 'about:blank';
 setTimeout(() => {
   var iframe = document.createElement('iframe');
-  iframe.src = 'https://www.yourwebsite.com'; // Replace with your website URL
+  iframe.src = 'https://example.com'; // Replace with your website URL
   iframe.style.width = '100%';
   iframe.style.height = '100%';
   iframe.style.border = 'none';
