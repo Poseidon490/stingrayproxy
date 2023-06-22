@@ -82,6 +82,7 @@ body {
 .url-bar:focus {
   background-color: rgba(255, 255, 255, 0.2);
   outline: none;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 .actions {
@@ -104,6 +105,7 @@ body {
 
 .action-button:hover {
   background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 .tabs {
@@ -124,6 +126,7 @@ body {
   margin-bottom: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  position: relative;
 }
 
 .tab.active {
@@ -163,6 +166,7 @@ body {
 
 .add-tab-button:hover {
   background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 .tab-content {
@@ -197,4 +201,5 @@ body {
 .search-bar:focus {
   background-color: rgba(255, 255, 255, 0.8);
   outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
