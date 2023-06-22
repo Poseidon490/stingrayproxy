@@ -1,203 +1,157 @@
-body,
-h1,
-p,
-input {
+/* tabs.css */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-image: url('https://cdn.wallpapersafari.com/3/24/Ikljay.jpg');
-  background-size: cover;
+  background-image: url(https://e1.pxfuel.com/desktop-wallpaper/933/394/desktop-wallpaper-sand-dunes-desert-landscape-evening-windows-10x-nature-blue-sand.jpg);
+  font-family: Arial, sans-serif;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-@media (max-width: 768px) {
-  body {
-    background-size: 100% auto;
-    background-position: center;
-  }
+.tab {
+  border: none;
+  outline: none;
 }
 
-#header {
-  text-align: center;
-  padding: 20px;
+
+.browser {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
 }
 
-#content {
-  text-align: center;
-  padding: 10px;
-}
-
-h1 {
-  font-family: 'Claro', sans-serif;
-  font-size: 100px;
-  margin-bottom: 20px;
+.sidebar {
+  width: 220px;
+  background-color: #1C1D20;
   color: #fff;
-  outline-color: #000;
-  outline-width: 10px;
-}
-
-form {
-  margin-bottom: 20px;
-}
-
-.center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.form__input {
-  justify-content: center;
-  width: 500px;
-  height: 30px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-  color: 6;
-}
-
-.desc {
-  margin-top: 20px;
-}
-
-.fa-brands,
-.fa-solid {
-  margin-right: 10px;
-  font-size: 24px;
-  color: #000;
-  text-decoration: none;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.fa-brands:hover,
-.fa-solid:hover {
-  color: #0a1bff;
-  transform: scale(1.2);
-}
-
-@media (max-width: 600px) {
-  .form__input {
-    width: 100%;
-  }
-}
-
-.Clock {
-  position: absolute;
-  top: 0;
-  right: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 24px;
-  padding: 5px;
-  background-color: rgba(128, 128, 128, 0.3);
-  border-radius: 5px;
-  color: #fff;
-}
-
-#date {
-  margin-top: 1px;
-}
-
-.Clock span {
-  margin: 0 1px;
-  margin-top: 460;
-}
-
-#session {
-  font-size: 24px;
-  margin: 0 3px;
-}
-
-.navbar {
-  background-color: rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding: 10px;
-  display: flex;
-  align-items: center;
 }
 
-.logo {
-  font-size: 40px;
-  font-weight: bold;
-  color: #ffffff;
-  margin-right: 20px;
-  margin-left: 60px;
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
-.nav-buttons {
+.arrow {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.refresh {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.url-bar {
+  width: 100%;
+  height: 40px;
+  padding: 0px 12px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #000;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.action-button {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.tabs {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-bottom: 10px;
+}
+
+.tab {
   display: flex;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #616161;
+}
+
+.close-button {
+  margin-left: auto;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.tab:hover .close-button {
+  opacity: 1;
+}
+
+.add-tab-button {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
   margin-top: 10px;
 }
 
-.nav-button {
-  margin-right: 20px;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: lighter;
-  font-size: 20px;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: rgba(249, 249, 249, 0.5);
-  min-width: 100px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  padding: 5px 0;
-  z-index: 1;
-  display: none;
-  border-radius: 5px;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown-item {
-  padding: 5px 10px;
-  text-decoration: none;
-  color: #000;
-  font-weight: bold;
-  font-size: 14px;
-  display: block;
-}
-
-
-p {
-  font-family: 'Claro', sans-serif;
-  font-size: 15px;
-  margin-bottom: 20px;
+.tab-content {
+  flex-grow: 1;
+  padding: 10px;
   color: #fff;
-  outline-color: #000;
-  outline-width: 12px;
 }
 
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-social-links {
-   position: fixed; /* or absolute */
-  top: 50%;
-  left: 50%;
-
+.search-bar {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  width: 758px;
+  height: 80px;
+  color: #635f5f;
+  font-size: 24px;
+  font-family: "Plus" Jakarta Sans;
+  font-weight: 600;
+  letter-spacing: -0.24px;
 }
