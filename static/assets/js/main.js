@@ -45,16 +45,6 @@ const checkPopupClosed = (popup) => {
     createPopup();
   };
   
-  <!DOCTYPE html>
-  <html>
-  <head>
-  <script>
-  window.open('about:blank', '_blank');
-  </script>
-  </head>
-  <body>
-  </body>
-  </html>
   
   if (window !== top && !navigator.userAgent.includes("Firefox")) {
     openPopup();
