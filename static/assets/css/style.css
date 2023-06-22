@@ -1,25 +1,21 @@
 /* tabs.css */
-:root {
-  --primary-color: #1C1D20;
-  --secondary-color: #616161;
-  --text-color: #fff;
-  --button-color: rgba(255, 255, 255, 0.08);
-  --active-tab-color: var(--secondary-color);
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: all 0.3s ease;
 }
 
 body {
   background-image: url(https://e1.pxfuel.com/desktop-wallpaper/933/394/desktop-wallpaper-sand-dunes-desert-landscape-evening-windows-10x-nature-blue-sand.jpg);
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+
+.tab {
+  border: none;
+  outline: none;
 }
 
 .browser {
@@ -30,45 +26,84 @@ body {
 
 .sidebar {
   width: 220px;
-  background-color: var(--primary-color);
-  color: var(--text-color);
+  background-color: #1C1D20;
+  color: #fff;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.arrow, .refresh {
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.arrow {
   background-color: transparent;
   border: none;
-  color: var(--text-color);
+  color: #fff;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.arrow:hover {
+  color: #ccc;
 }
 
 .refresh {
-  margin-right: 15px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+  transition: color 0.3s;
+}
+
+.refresh:hover {
+  color: #ccc;
 }
 
 .url-bar {
   width: 100%;
   height: 40px;
-  padding: 0 15px;
-  margin-bottom: 20px;
+  padding: 0px 12px;
+  margin-bottom: 10px;
   border: none;
-  border-radius: 10px;
-  background-color: var(--button-color);
-  color: var(--text-color);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #000;
+  transition: background-color 0.3s;
+}
+
+.url-bar:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  outline: none;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .action-button {
-  background-color: var(--button-color);
+  background-color: rgba(255, 255, 255, 0.08);
   border: none;
-  color: var(--text-color);
+  color: #fff;
   cursor: pointer;
   padding: 10px;
   width: 60px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .tabs {
@@ -76,29 +111,39 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .tab {
   display: flex;
   align-items: center;
-  background-color: var(--button-color);
-  color: var(--text-color);
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .tab.active {
-  background-color: var(--active-tab-color);
+  background-color: #616161;
+}
+
+.tab.active .close-button {
+  opacity: 1;
 }
 
 .close-button {
   margin-left: auto;
-  color: var(--text-color);
+  color: #fff;
   cursor: pointer;
   opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tab:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .tab:hover .close-button {
@@ -106,25 +151,50 @@ body {
 }
 
 .add-tab-button {
-  background-color: var(--button-color);
+  background-color: rgba(255, 255, 255, 0.1);
   border: none;
-  color: var(--text-color);
+  color: #fff;
   cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.add-tab-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tab-content {
+  flex-grow: 1;
   padding: 10px;
-  border-radius: 10px;
-  margin-top: 20px;
+  color: #fff;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .search-bar {
   background-color: rgba(255, 255, 255, 0.7);
   border: none;
-  border-radius: 15px;
-  padding: 15px;
+  border-radius: 8px;
+  padding: 10px;
   width: 758px;
   height: 80px;
   color: #635f5f;
-  font-size: 28px;
-  font-family: "Plus Jakarta Sans";
+  font-size: 24px;
+  font-family: "Plus" Jakarta Sans;
   font-weight: 600;
   letter-spacing: -0.24px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s;
+}
+
+.search-bar:focus {
+  background-color: rgba(255, 255, 255, 0.8);
+  outline: none;
 }
