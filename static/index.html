@@ -2,135 +2,40 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/assets/css/index.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
-  <style>
-    @import url('https://fonts.cdnfonts.com/css/claro-2');
-  </style>
+  <title>Browser Tabs Example</title>
+  <link rel="stylesheet" type="text/css" href="tabs.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
-
-<div class="navbar">
-  <span class="logo">Stingray</span>
-  <div class="nav-buttons">
-    <a href="#" class="nav-button">Games</a>
-    <a href="setting.html" class="nav-button">Settings</a>
-    <a href="#" class="nav-button">Social</a>
-    <a href="#" class="nav-button">idk</a>
-    <div class="dropdown">
-      <a href="#" class="nav-button">Dev Tools &#9662;</a>
-      <div class="dropdown-content">
-        <a href="#" class="dropdown-item">User Scripts</a>
-        <a href="#" class="dropdown-item">Dev Tools</a>
-        <a href="#" class="dropdown-item">Code Sandbox</a>
-        <a href="#" class="dropdown-item">Extensions</a>
-        <a href="#" class="dropdown-item">Analytics</a>
+<body>
+  <div class="browser">
+    <div class="sidebar">
+      <div class="navigation">
+        <button class="arrow back"><i class="fas fa-chevron-left"></i></button>
+        <button class="arrow forward"><i class="fas fa-chevron-right"></i></button>
+        <button class="refresh"><i class="fas fa-sync-alt"></i></button>
+      </div>
+      <input type="text" class="url-bar" placeholder="Enter URL">
+      <div class="actions">
+        <button class="action-button settings"><i class="fas fa-cog"></i></button>
+        <button class="action-button new-tab"><i class="fas fa-external-link-alt"></i></button>
+        <button class="action-button copy-url"><i class="fas fa-copy"></i></button>
+      </div>
+      <div class="tabs" id="sortable">
+        <button class="tab active" id="home">Home <span class="close-button"></span></button>
+      </div>
+      <button class="add-tab-button" onclick="addNewTab()"><i class="fas fa-plus"></i> New tab</button>
+    </div>
+    <div class="tab-content">
+      <div id="home" class="tab-panel active">
+        <div class="search-container">
+          <input type="text" class="search-bar" placeholder="Search">
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="center">
-  <header id="header">
-  </header>
-  <div id="content">
-    <h1>Stingray</h1>
-    <p>Unlock the the world 🌍</p>
-    <form id="uv-form"">
-            <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/> 
-            <input id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input"/>
-    <div class="desc">
-      <p id="uv-error"></p>
-      <pre id="uv-error-code"></pre>
-    </div>
-    <div class="social-links">
-      <a href="#" target="_blank" class="fa-brands fa-discord"></a>
-      <a href="https://github.com/Poseidon490/Stingray" target="_blank" class="fa-brands fa-github"></a>
-      <a href="#" target="_blank" class="fa-solid fa-cloud"></a>
-      <a href="#" target="_blank" class="fa-solid fa-robot"></a>
-      <a href="#" target="_blank" class="fa-solid fa-Gamepad"></a>
-    </div>
 
-  </div>
-</div>
-<script src="uv/uv.bundle.js" defer></script>
-<script src="uv/uv.config.js" defer></script>
-<script src="register-sw.js" defer></script>
-<script src="search.js" defer></script>
-<script src="index.js" defer></script>
-<script src="error.js" defer></script>
-<div class="Clock">
-  <div>
-    <span id="hours">00</span>
-    <span>:</span>
-    <span id="minutes">000</span>
-    <span id="session">AM</span>
-  </div>
-  <div id="date"></div>
-</div>
-
+  <script src="tabs.js"></script>
 </body>
 
 </html>
-
-<script src="script.js" defer></script>
-</head>
-
-<script>
-  function displayTime() {
-    var dateTime = new Date();
-    var hrs = dateTime.getHours();
-    var min = dateTime.getMinutes();
-    var sec = dateTime.getSeconds();
-    var session = document.getElementById('session');
-
-    if (hrs >= 12) {
-      session.innerHTML = 'PM';
-    } else {
-      session.innerHTML = 'AM';
-    }
-
-    if (hrs > 12) {
-      hrs = hrs - 12;
-    }
-
-    document.getElementById('hours').innerHTML = hrs;
-    document.getElementById('minutes').innerHTML = addLeadingZero(min);
-    document.getElementById('seconds').innerHTML = addLeadingZero(sec);
-  }
-
-  function addLeadingZero(number) {
-    return number < 10 ? '0' + number : number;
-  }
-
-  setInterval(displayTime, 10);
-</script>
-
-<script>
-  function displayDate() {
-    var date = new Date();
-    var month = date.getMonth() + 1; 
-    var day = date.getDate();
-    var year = date.getFullYear();
-
-    month = addLeadingZero(month);
-    day = addLeadingZero(day);
-
-    var formattedDate = month + '/' + day + '/' + year;
-    document.getElementById('date').innerHTML = formattedDate;
-  }
-
-  function addLeadingZero(number) {
-    return number < 10 ? '0' + number : number;
-  }
-
-  displayDate();
-
-  setInterval(displayDate, 1000);
-</script>
