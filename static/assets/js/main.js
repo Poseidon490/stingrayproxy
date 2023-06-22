@@ -1,16 +1,15 @@
-const checkPopupClosed = (popup) => {
-    return new Promise((resolve) => {
-      const checkClosedInterval = setInterval(() => {
-        if (popup.closed) {
-          clearInterval(checkClosedInterval);
-          resolve();
-        }
-      }, 500);
-    });
-  };
-  
+let inFrame = false;
+
+try {
+  inFrame = window !== top;
+} catch (e) {
+  inFrame = true;
+}
+
+// Cloaking Code
+if (!inFrame && !navigator.userAgent.includes("Firefox")) {
   const openPopup = () => {
-    const popup = window.open("about:blank", "_blank");
+    const popup = open("about:blank", "_blank");
     if (!popup || popup.closed) {
       alert("Allow popups and redirects to hide this from showing up in your history.");
     } else {
@@ -18,30 +17,43 @@ const checkPopupClosed = (popup) => {
       const iframe = doc.createElement("iframe");
       const style = iframe.style;
       const link = doc.createElement("link");
-  
+
       const name = localStorage.getItem("name") || "My Drive - Google Drive";
       const icon = localStorage.getItem("icon") || "https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png";
-  
+
       doc.title = name;
       link.rel = "icon";
       link.href = icon;
-  
+
       iframe.src = location.href;
       style.position = "fixed";
       style.top = style.bottom = style.left = style.right = 0;
       style.border = style.outline = "none";
       style.width = style.height = "100%";
-  
+
       doc.head.appendChild(link);
       doc.body.appendChild(iframe);
-  
-      checkPopupClosed(popup).then(() => {
-        openPopup();
-      });
+      self.close();
     }
   };
-  
-  if (window !== top && !navigator.userAgent.includes("Firefox")) {
-    openPopup();
-  }
-  
+
+  const checkPopupClosed = () => {
+    const checkClosedInterval = setInterval(() => {
+      if (window.closed) {
+        clearInterval(checkClosedInterval);
+        openPopup();
+      }
+    }, 500);
+  };
+
+  const openBlankPopup = () => {
+    const popup = open("about:blank", "_blank");
+    if (!popup) {
+      alert("Popup blocked. Please allow popups and redirects to continue.");
+    } else {
+      checkPopupClosed();
+    }
+  };
+
+  openBlankPopup();
+}
