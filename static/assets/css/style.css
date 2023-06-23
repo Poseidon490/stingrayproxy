@@ -175,14 +175,14 @@ body {
   color: #fff;
 }
 
-.search-container {
+.desc left-margin {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.search-bar {
+.desc left-margin {
   background-color: rgba(255, 255, 255, 0.7);
   border: none;
   border-radius: 8px;
