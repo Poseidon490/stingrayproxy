@@ -29,9 +29,15 @@ function addNewTab() {
   const tabPanel = document.createElement('div');
   tabPanel.className = 'tab-panel';
   tabPanel.id = newTabId;
-  tabPanel.innerHTML = `        <div class="search-container">
-          <input type="text" class="search-bar" placeholder="Search">
-        </div>`;
+  tabPanel.innerHTML = `          <div class="UVBARFLEX">
+             <form class="UVBAR"id="uv-form">
+            <input class="UVBAR" id="uv-search-engine" value="" type="hidden"/> 
+            <input class="UVBAR" id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input"/>
+          </form>
+          <div class="UVBARFLEX">
+            <p id="uv-error"></p>
+            <pre id="uv-error-code"></pre>
+          </div>`;
   document.querySelector('.tab-content').appendChild(tabPanel);
 
   tabCount++;
