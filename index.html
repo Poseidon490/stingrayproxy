@@ -19,7 +19,7 @@
       }
 
       .login-box {
-        max-width: 500px; /* Increased width */
+        max-width: 500px;
         padding: 40px;
         background-color: #ffffff;
         border-radius: 5px;
@@ -69,6 +69,26 @@
       .form-group button:hover {
         background-color: #999999;
       }
+
+      .guest-button {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .guest-button button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #808080;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .guest-button button:hover {
+        background-color: #999999;
+      }
     </style>
   </head>
   <body>
@@ -88,6 +108,9 @@
             <button type="submit">Log In</button>
           </div>
         </form>
+        <div class="guest-button">
+          <button onclick="continueAsGuest()">Continue as Guest</button>
+        </div>
       </div>
     </div>
 
@@ -106,6 +129,11 @@
         } else {
           alert("Invalid username or password. Please try again.");
         }
+      }
+
+      function continueAsGuest() {
+        alert("Continuing as a guest...");
+        // Handle the action for continuing as a guest
       }
     </script>
   </body>
