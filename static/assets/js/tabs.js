@@ -1,5 +1,3 @@
-// tabs.js
-
 let tabCount = 2; // Start tab count from 2 since home is initially loaded as tab 1
 
 function openTab(event, tabId) {
@@ -49,6 +47,16 @@ function closeTab(event) {
   tabContent.parentNode.removeChild(tabContent);
 
   tabButton.parentNode.removeChild(tabButton);
+
+  // Update tab numbers
+  const tabButtons = document.getElementsByClassName('tab');
+  for (let i = 0; i < tabButtons.length; i++) {
+    const tab = tabButtons[i];
+    const tabId = tab.getAttribute('onclick').match(/'([^']+)'/)[1];
+    const tabNumber = i + 1;
+    tab.innerHTML = `Tab ${tabNumber} <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
+    tab.setAttribute('onclick', `openTab(event, '${tabId}')`);
+  }
 }
 
 // Event listener for the home tab
