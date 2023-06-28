@@ -127,3 +127,57 @@ p {
   background: #537A5A;
   color: #fff;
 }</style>
+
+    <script>
+ var firebaseConfig = {
+        // Add your Firebase project configuration here
+        apiKey: "AIzaSyDOwP73Z8Baz32X6JlW3D7pJPBvCNezja8",
+    authDomain: "stingr-19f41.firebaseapp.com",
+    projectId: "stingr-19f41",
+    storageBucket: "stingr-19f41.appspot.com",
+    messagingSenderId: "530197032398",
+    appId: "1:530197032398:web:c1c24c9fbf7b2dba9b0f9f",
+    measurementId: "G-MQ44XK2YJZ"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    var usernameField = document.getElementById('username');
+    var passwordField = document.getElementById('password');
+
+    // Function to create a new user account
+    function createAccount() {
+        var username = usernameField.value;
+        var password = passwordField.value;
+        
+        firebase.auth().createUserWithEmailAndPassword(username, password)
+            .then(function(userCredential) {
+                // Handle successful account creation
+                console.log('Account created successfully:', userCredential.user);
+                // Redirect or show success message
+            })
+            .catch(function(error) {
+                // Handle account creation errors
+                console.error('Error creating account:', error);
+                // Show error message
+            });
+    }
+
+    // Function to log in an existing user
+    function login() {
+        var username = usernameField.value;
+        var password = passwordField.value;
+
+        firebase.auth().signInWithEmailAndPassword(username, password)
+            .then(function(userCredential) {
+                // Handle successful login
+                console.log('User logged in successfully:', userCredential.user);
+                // Redirect or show success message
+            })
+            .catch(function(error) {
+                // Handle login errors
+                console.error('Error logging in:', error);
+                // Show error message
+            });
+    }
+
+</script>
