@@ -170,7 +170,7 @@ p {
         firebase.auth().signInWithEmailAndPassword(username, password)
             .then(function(userCredential) {
                 // Handle successful login
-                console.log('User logged in successfully:', userCredential.user);
+                alert('User logged in successfully:', userCredential.user);
                 // Redirect or show success message
             })
             .catch(function(error) {
