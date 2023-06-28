@@ -105,7 +105,7 @@ form {
   font-family: 'Open Sans', sans-serif;
   font-size: 24px;
   padding: 5px;
-  background-color: rgba(128, 128, 128, 0.3);
+  background-color: #8080804d;
   border-radius: 5px;
   color: #fff;
 }
@@ -162,7 +162,7 @@ form {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: rgba(249, 249, 249, 0.5);
+  background-color: #f9f9f980;
   min-width: 100px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding: 5px 0;
