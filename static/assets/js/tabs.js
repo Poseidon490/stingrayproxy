@@ -52,10 +52,15 @@ function closeTab(event) {
   const tabButtons = document.getElementsByClassName('tab');
   for (let i = 0; i < tabButtons.length; i++) {
     const tab = tabButtons[i];
-    const tabId = tab.getAttribute('onclick').match(/'([^']+)'/)[1];
-    const tabNumber = i + 1;
-    tab.innerHTML = `Tab ${tabNumber} <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
-    tab.setAttribute('onclick', `openTab(event, '${tabId}')`);
+    const oldTabId = tab.getAttribute('onclick').match(/'([^']+)'/)[1];
+    const newTabId = `tab${i + 1}`;
+    const closeButton = tab.querySelector('.close-button');
+    closeButton.setAttribute('onclick', `closeTab(event)`);
+    closeButton.innerHTML = `<i class="fas fa-times"></i>`;
+    tab.innerHTML = `Tab ${i + 1} <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
+    tab.setAttribute('onclick', `openTab(event, '${newTabId}')`);
+    const tabContent = document.getElementById(oldTabId);
+    tabContent.id = newTabId;
   }
 }
 
