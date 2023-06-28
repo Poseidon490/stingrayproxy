@@ -124,16 +124,17 @@
 
         // Perform the authentication check
         if (username === "stingray" && password === "proxy") {
-          alert("Login successful!");
-          window.location.href = "static/index.html"; // Redirect to the desired page
+          // Redirect to the desired page
+          window.location.href = "static/index.html";
         } else {
+          // Display an error message
           alert("Invalid username or password. Please try again.");
         }
       }
 
       function continueAsGuest() {
-        alert("Continuing as a guest...");
-        window.location.href = "static/index.html"; // Redirect to the desired page
+        // Redirect to the desired page
+        window.location.href = "static/index.html";
       }
     </script>
   </body>
