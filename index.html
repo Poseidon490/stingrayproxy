@@ -6,19 +6,19 @@
       body {
         font-family: Arial, sans-serif;
         background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
       }
 
       .container {
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 20px;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background-color: #cccccc;
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
       }
 
       h2 {
@@ -68,24 +68,26 @@
   </head>
   <body>
     <div class="container">
-      <h2>Login</h2>
-      <form onsubmit="login(event)">
-        <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required />
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required />
-        </div>
-        <div class="form-group">
-          <button type="submit">Log In</button>
-        </div>
-      </form>
+      <div>
+        <h2>Login</h2>
+        <form onsubmit="login(event)">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <div class="form-group">
+            <button type="submit">Log In</button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <script>
-      function login(event) {
+      function login(event) 
         event.preventDefault();
 
         // Get the input values
@@ -99,7 +101,3 @@
         } else {
           alert("Invalid username or password. Please try again.");
         }
-      }
-    </script>
-  </body>
-</html>
