@@ -179,5 +179,11 @@ p {
                 // Show error message
             });
     }
-
+ // Check if user is already logged in
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is logged in, redirect to dashboard
+            window.location.href = "/static/";
+        }
+    });
 </script>
