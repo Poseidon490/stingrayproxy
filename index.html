@@ -84,7 +84,7 @@
       // Perform the authentication check
       if (username === "stingray" && password === "proxy") {
         alert("Login successful!");
-        // Redirect to another page or perform other actions upon successful login
+        window.location.href = "static/index.html"; // Redirect to the desired page
       } else {
         alert("Invalid username or password. Please try again.");
       }
