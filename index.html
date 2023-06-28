@@ -1,141 +1,129 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Login Page</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-        margin: 0;
-        padding: 0;
-      }
-
-      .container {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .login-box {
-        max-width: 500px;
-        padding: 40px;
-        background-color: #ffffff;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-
-      h2 {
-        text-align: center;
-        margin-top: 0;
-        color: #333333;
-      }
-
-      form {
-        margin-top: 20px;
-      }
-
-      .form-group {
-        margin-bottom: 20px;
-      }
-
-      .form-group label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 5px;
-        color: #333333;
-      }
-
-      .form-group input {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 5px;
-        border: 1px solid #cccccc;
-      }
-
-      .form-group button {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        background-color: #808080;
-        color: #ffffff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .form-group button:hover {
-        background-color: #999999;
-      }
-
-      .guest-button {
-        display: block;
-        text-align: center;
-        margin-top: 20px;
-      }
-
-      .guest-button button {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #808080;
-        color: #ffffff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .guest-button button:hover {
-        background-color: #999999;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="login-box">
-        <h2>Login</h2>
-        <form onsubmit="login(event)">
-          <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required />
-          </div>
-          <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required />
-          </div>
-          <div class="form-group">
-            <button type="submit">Log In</button>
-          </div>
-        </form>
-        <div class="guest-button">
-          <button onclick="continueAsGuest()">Continue as Guest</button>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/d34866437d.js" crossorigin="anonymous"></script>
+    <!-- Include Firebase JavaScript SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<body>
+    <div class="login-area">
+        <div class="login-box">
+            <div class="user-icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <h2>Welcome Back!</h2>
+            <p>Login with your Stingray ID</p>
+            <div class="input-box">
+                <input type="text" id="username" placeholder="Username">
+            </div>
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Password">
+            </div>
+            <div class="buttons">
+                <button class="create-account-btn" onclick="createAccount()">First time? Create account</button>
+                <button class="login-btn" onclick="login()">Login</button>
+            </div>
         </div>
-      </div>
     </div>
 
-    <script>
-      function login(event) {
-        event.preventDefault();
+<style>body {
+  background-image: url("https://e1.pxfuel.com/desktop-wallpaper/933/394/desktop-wallpaper-sand-dunes-desert-landscape-evening-windows-10x-nature-blue-sand.jpg");
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
 
-        // Get the input values
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
+.login-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
 
-        // Perform the authentication check
-        if (username === "stingray" && password === "proxy") {
-          // Redirect to the desired page
-          window.location.href = "static/index.html";
-        } else {
-          // Display an error message
-          alert("Invalid username or password. Please try again.");
-        }
-      }
+.login-box {
+  width: 300px;
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+}
 
-      function continueAsGuest() {
-        // Redirect to the desired page
-        window.location.href = "static/index.html";
-      }
-    </script>
-  </body>
-</html>
+.user-icon {
+  font-size: 60px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #fff;
+}
+
+p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.input-box {
+  margin-top: 20px;
+}
+
+.input-box input[type="text"],
+.input-box input[type="password"] {
+  display: flex;
+  height: 60px;
+  padding: 0px 12px;
+  align-items: center;
+  gap: 9px;
+  align-self: stretch;
+  border-radius: 9px;
+  background: var(--on-dark-default, rgba(255, 255, 255, 0.08));
+  width: 90%;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons button {
+  flex: 1;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.create-account-btn {
+  display: flex;
+  padding: 15px 36px 22.5px 36px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: 9px;
+  color: #fff;
+  background: var(--on-dark-default, rgba(255, 255, 255, 0.08));
+}
+
+.login-btn {
+  display: flex;
+  padding: 22.5px 36px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: 9px;
+  background: #537A5A;
+  color: #fff;
+}</style>
