@@ -170,6 +170,38 @@ a{
     <div class="text">
         <h1>404 Error</h1>  
       <h2>Couldn't launch :(</h2>
+      <p id="joke"></p>
+    <script>
+      var jokes = [
+        "Why did the programmer quit his job? He didn't get arrays.",
+        "Why do programmers prefer dark mode? Less watts per screen.",
+        "Why do programmers prefer dogs? Because they have a bark function.",
+        "Why did the computer go to the doctor? It had a virus.",
+        "Why did the JavaScript developer wear glasses? Because he couldn't C#.",
+        "Why do programmers prefer dark mode? Because light attracts bugs.",
+        "Why did the computer go to the dentist? To get its Bluetooth fixed.",
+        "Why did the programmer go broke? He used up all his cache.",
+        "Why don't programmers like nature? It has too many bugs.",
+        "Why did the programmer get in trouble with his boss? He left his classes public.",
+        "Why did the programmer quit his job? He didn't get inheritance from his boss.",
+        "Why did the database administrator break up with his girlfriend? She couldn't handle his SQL.",
+        "Why did the programmer get stuck in the shower? He forgot to bring his SOAP.",
+        "Why do programmers prefer dark chocolate? Because it's semisweet.",
+        "Why did the computer go to the doctor? It had a terminal illness.",
+        "Why do programmers prefer Linux? Because it's open source.",
+        "Why did the programmer go to the beach? To surf the net.",
+        "Why did the computer cross the road? To get to the other site.",
+        "Why did the programmer go to the bar? To get a byte to eat.",
+        "Why did the computer go to the gym? To get stronger processors.",
+        "Why do programmers prefer cats? Because they're purrfect for debugging.",
+        "Why did the computer go to the dentist? It had a byte problem.",
+        "Why did the programmer go to the psychiatrist? He had too many loops.",
+        "Why do programmers prefer dark humor? Because they like their humor like their code - dry.",
+        "Why did the programmer break up with his calculator? It just didn't add up."
+      ];
+      var joke = jokes[Math.floor(Math.random() * jokes.length)];
+      document.getElementById("joke").innerHTML = joke;
+    </script>
          <h3>Page Not Found - lets take you <a href="/index.html">BACK</a></h3> 
     </div>
 </body>
