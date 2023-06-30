@@ -36,12 +36,17 @@ function addNewTab() {
   iframe.style.height = '100%';
   iframe.style.border = 'none';
   tabPanel.appendChild(iframe);
+  iframe.addEventListener('load', () => {
+    const title = iframe.contentDocument.title;
+    tabButton.innerHTML = title + ` <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
+  });
   document.querySelector('.tab-content').appendChild(tabPanel);
 
   tabCount++;
 }
 
 function closeTab(event) {
+  event.stopPropagation();
   const tabButton = event.target.closest('.tab');
   const tabId = tabButton.getAttribute('onclick').match(/'([^']+)'/)[1];
 
