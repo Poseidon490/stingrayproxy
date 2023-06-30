@@ -1,5 +1,5 @@
 self.__uv$config = {
-    prefix: '/static/tabs/',
+    prefix: '/static/tabs.html',
     bare: 'https://baresw.starttiw.org/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
