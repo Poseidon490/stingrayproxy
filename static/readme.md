@@ -1,3 +1,1 @@
-# backend tinkered by Kwazeh At TIW. 
-Use with permission. 
-Please credit TIW OR Kwazeh for the backend if you use this. Ty
+# stop skidding, i quit, DO NOT use my backend(TIW modified UV), or my Bare Server(TIW bare). or i will issue a takedown.
