@@ -19,7 +19,7 @@ function isUrl(val = "") {
       .then(() => {
         let url = input.value.trim();
         if (!isUrl(url)) {
-          url = "https://www.google.com/search?q=" + url;
+          url = "https://www.google.com" + url;
           location.href = __uv$config.prefix + __uv$config.encodeUrl(url)
         }
         else if (!(url.startsWith("https://") || url.startsWith("http://"))) {
