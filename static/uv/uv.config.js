@@ -1,6 +1,6 @@
 self.__uv$config = {
     prefix: '/static/tabs.html',
-    bare: 'https://interstellars.games',
+    bare: 'https://interstellars.games/bare',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/static/uv/uv.handler.js',
