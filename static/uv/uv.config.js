@@ -1,6 +1,6 @@
 self.__uv$config = {
     prefix: '/static/tabs.html',
-    bare: 'https://baresw.starttiw.org/',
+    bare: 'https://stingraybare.jungle-club.repl.co/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/static/uv/uv.handler.js',
