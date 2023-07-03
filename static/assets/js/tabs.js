@@ -1,5 +1,3 @@
-// tabs.js
-
 let tabCount = 2; // Start tab count from 2 since home is initially loaded as tab 1
 
 function openTab(event, tabId) {
@@ -10,11 +8,11 @@ function openTab(event, tabId) {
 
   const tabLinks = document.getElementsByClassName('tab');
   for (let i = 0; i < tabLinks.length; i++) {
-    tabLinks[i].className = tabLinks[i].className.replace(' active', '');
+    tabLinks[i].classList.remove('active');
   }
 
   document.getElementById(tabId).style.display = 'block';
-  event.currentTarget.className += ' active';
+  event.currentTarget.classList.add('active');
 }
 
 function addNewTab() {
