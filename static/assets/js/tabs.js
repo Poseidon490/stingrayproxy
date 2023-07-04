@@ -46,7 +46,7 @@ function addNewTab() {
 </style>
 </head>
 <body>
-<iframe src="/static/tab.html" allowtransparency="true" scrolling="no" allowfullscreen="" width="100%" height="100%" frameborder="0"></iframe>
+<iframe src="/static/tabs.html" allowtransparency="true" scrolling="no" allowfullscreen="" width="100%" height="100%" frameborder="0"></iframe>
 </body>
 </html>
   `;
