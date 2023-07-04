@@ -19,7 +19,7 @@ function addNewTab() {
   const tabList = document.getElementById('sortable');
   const tabButton = document.createElement('button');
   const newTabId = `tab${tabCount}`;
-  tabButton.className = 'tab';
+  tabButton.className = 'tab active'; // Assign 'active' class to the new tab
   tabButton.setAttribute('onclick', `openTab(event, '${newTabId}')`);
   tabButton.innerHTML = `Tab ${tabCount} <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
   tabList.appendChild(tabButton);
@@ -40,6 +40,13 @@ function addNewTab() {
   });
   document.querySelector('.tab-content').appendChild(tabPanel);
 
+  // Display the new tab's panel and hide others
+  const tabContent = document.getElementsByClassName('tab-panel');
+  for (let i = 0; i < tabContent.length; i++) {
+    tabContent[i].style.display = 'none';
+  }
+  tabPanel.style.display = 'block';
+
   tabCount++;
 }
 
@@ -58,6 +65,3 @@ function closeTab(event) {
 document.getElementById('tab1').addEventListener('click', (event) => {
   openTab(event, 'tab1');
 });
-
-// Event listener for the "Add Tab" button
-document.querySelector('.add-tab-button').addEventListener('click', addNewTab);
