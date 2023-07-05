@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* tabs.css */
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(https://e1.pxfuel.com/desktop-wallpaper/933/394/desktop-wallpaper-sand-dunes-desert-landscape-evening-windows-10x-nature-blue-sand.jpg);
+  font-family: Arial, sans-serif;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.tab {
+  border: none;
+  outline: none;
+}
+
+.browser {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #1C1D20;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.arrow {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.arrow:hover {
+  color: #ccc;
+}
+
+.refresh {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+  transition: color 0.3s;
+}
+
+.refresh:hover {
+  color: #ccc;
+}
+
+.url-bar {
+  width: 100%;
+  height: 40px;
+  padding: 0px 12px;
+  margin-bottom: 10px;
+  border: none;
+  text-align: center;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.08);
+  transition: background-color 0.3s;
+}
+
+.url-bar:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.action-button {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.tabs {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-bottom: 10px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 10px 8px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
+  position: relative;
+}
+
+.tab.active {
+  background-color: #616161;
+}
+
+.tab.active .close-button {
+  opacity: 1;
+}
+
+.close-button {
+  margin-left: auto;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tab:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tab:hover .close-button {
+  opacity: 1;
+}
+
+.add-tab-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 15px;
+  transition: background-color 0.3s;
+}
+
+.add-tab-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.tab-content {
+  flex-grow: 1;
+
+  color: #fff;
+}
+
+.UVBARFLEX {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.UVBAR {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  width: 758px;
+  height: 80px;
+  color: #635f5f;
+  font-size: 24px;
+  font-family: "Plus" Jakarta Sans;
+  font-weight: 600;
+  letter-spacing: -0.24px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s;
+}
+
+.search-bar:focus {
+  background-color: rgba(255, 255, 255, 0.8);
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
