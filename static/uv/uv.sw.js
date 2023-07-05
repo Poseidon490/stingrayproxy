@@ -121,7 +121,7 @@ class UVServiceWorker extends EventEmitter {
             for (const name of this.headers.csp) {
                 if (responseCtx.headers[name]) delete responseCtx.headers[name];
             }; 
-            
+
             if (responseCtx.headers.location) {
                 responseCtx.headers.location = ultraviolet.rewriteUrl(responseCtx.headers.location);
             };
