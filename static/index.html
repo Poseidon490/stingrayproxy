@@ -5,53 +5,63 @@
   <title>Browser Tabs Example</title>
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link href="assets/css/notifications.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="https://unpkg.com/eruda/eruda.min.css" />
+  <script src="assets/js/main.js"></script>
+   <script src="assets/js/notifications.js"></script>
+   <link href="assets/css/notifications.css" rel="stylesheet" type="text/css" />
+   <link rel="stylesheet" href="https://unpkg.com/eruda/eruda.min.css" />
 </head>
 
 <body>
   <div id="notification-container"></div>
-  <div id="topbar">
-    <span id="settingsbtn" class="animate__animated animate__fadeInDown animate__delay-1s">
-      <i class="fa-solid fa-gear"></i>
-    </span>
-  </div>
+    <div id="topbar">
+      <span id="settingsbtn" class="animate__animated animate__fadeInDown animate__delay-1s">
+        <i class="fa-solid fa-gear"></i>
+      </span>
   <div class="browser">
-    <div class="container">
-      <div id="right-side-nav">
-        <!-- Right side navigation content goes here -->
+    <div class="sidebar">
+      <div class="navigation">
+        <button class="arrow back"><i class="fas fa-chevron-left"></i></button>
+        <button class="arrow forward"><i class="fas fa-chevron-right"></i></button>
+        <button class="refresh"><i class="fas fa-sync-alt"></i></button>
       </div>
-      <button id="toggle-nav">Toggle Navigation</button>
-      <ul id="tab-list"></ul>
-      <div id="iframe-container"></div>
-      <button id="add-tab">Add Tab</button>
+      <input type="text" class="url-bar" placeholder="Enter URL">
+      <div class="actions">
+        <button class="action-button settings"><i class="fas fa-cog"></i></button>
+        <button class="action-button new-tab"><i class="fas fa-external-link-alt"></i></button>
+        <button class="action-button copy-url"><i class="fas fa-copy"></i></button>
+      </div>
+      <div class="tabs" id="sortable">
+        <button class="tab active" id="home">Home <span class="close-button"></span></button>
+      </div>
+      <button class="add-tab-button" onclick="addNewTab()"><i class="fas fa-plus"></i> New tab</button>
     </div>
     <div class="tab-content">
       <div id="home" class="tab-panel active">
-        <div class="UVBARFLEX">
-          <form class="UVBAR" id="uv-form">
-            <input class="UVBAR" id="uv-search-engine" value="" type="hidden" />
-            <input class="UVBAR" id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input" />
+          <div class="UVBARFLEX">
+             <form class="UVBAR"id="uv-form">
+            <input class="UVBAR" id="uv-search-engine" value="" type="hidden"/> 
+            <input class="UVBAR" id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input"/>
           </form>
           <div class="UVBARFLEX">
             <p id="uv-error"></p>
             <pre id="uv-error-code"></pre>
+          </div>
+      <script src="uv/uv.bundle.js" defer></script>
+      <script src="uv/uv.config.js" defer></script>
+      <script src="register-sw.js" defer></script>
+      <script src="search.js" defer></script>
+      <script src="index.js" defer></script>
+      <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+      <script>eruda.init();</script>
+   </body>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/notifications.js"></script>
   <script src="assets/js/tabs.js"></script>
-  <script src="uv/uv.bundle.js" defer></script>
-  <script src="uv/uv.config.js" defer></script>
-  <script src="register-sw.js" defer></script>
-  <script src="search.js" defer></script>
-  <script src="index.js" defer></script>
-  <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-  <script>eruda.init();</script>
 </body>
-
 </html>
+<script src="//cdn.jsdelivr.net/npm/eruda"></script>
+<script>eruda.init();</script>
