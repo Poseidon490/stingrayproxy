@@ -3,8 +3,8 @@ self.__uv$config = {
     bare: 'https://uv.holyubofficial.net/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
-    handler: '/uv.handler.js',
-    bundle: '/uv.bundle.js',
-    config: '/uv.config.js',
-    sw: '/uv.sw.js',
+    handler: '/static/uv/uv.handler.js',
+    bundle: '/static/uv/uv.bundle.js',
+    config: '/static/uv/uv.config.js',
+    sw: '/static/uv/uv.sw.js',
 };
