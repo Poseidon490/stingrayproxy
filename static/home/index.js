@@ -4,7 +4,7 @@ const input = document.getElementById("uv-address");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   window.navigator.serviceWorker
-    .register("../uv-sw.js", {
+    .register("uv-bacxkup/uv.sw.js", {
       scope: __uv$config.prefix,
     })
     .then(() => {
