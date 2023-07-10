@@ -1,81 +1,188 @@
-<!DOCTYPE html>
 <html>
-
 <head>
-  <title>Browser Tabs Example</title>
-  <link rel="preload" href="assets/js/winbox.bundle.min.js" as="script">
-  <script src="static/assets/js/winbox.bundle.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/notifications.js"></script>
-  <link href="assets/css/notifications.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="https://unpkg.com/eruda/eruda.min.css" />
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/d34866437d.js" crossorigin="anonymous"></script>
+    <!-- Include Firebase JavaScript SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 </head>
-
 <body>
-  <div id="notification-container"></div>
-  <div id="topbar">
-    <span id="settingsbtn" class="animate__animated animate__fadeInDown animate__delay-1s">
-      <i class="fa-solid fa-gear"></i>
-    </span>
-  </div>
-  <div class="browser">
-    <div class="sidebar">
-      <div class="navigation">
-        <button class="arrow back"><i class="fas fa-chevron-left"></i></button>
-        <button class="arrow forward"><i class="fas fa-chevron-right"></i></button>
-        <button class="refresh"><i class="fas fa-sync-alt"></i></button>
-      </div>
-      <input type="text" class="url-bar" placeholder="Enter URL">
-      <div class="actions">
-        <button class="action-button settings" id="settingsButton"><i class="fas fa-cog"></i></button>
-        <button class="action-button new-tab" id="openButton"><i class="fas fa-external-link-alt"></i></button>
-        <button class="action-button copy-url"><i class="fas fa-copy"></i></button>
-      </div>
-      <div class="tabs" id="sortable">
-        <button class="tab active" id="home">Home <span class="close-button"></span></button>
-      </div>
-      <button class="add-tab-button" onclick="addNewTab()"><i class="fas fa-plus"></i> New tab</button>
-    </div>
-    <div class="tab-content">
-      <div id="home" class="tab-panel active">
-        <div class="UVBARFLEX">
-          <form class="UVBAR" id="uv-form">
-            <input class="UVBAR" id="uv-search-engine" value="" type="hidden" />
-            <input class="UVBAR" id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input" />
-          </form>
-          <div class="UVBARFLEX">
-            <p id="uv-error"></p>
-            <pre id="uv-error-code"></pre>
-          </div>
+    <div class="login-area">
+        <div class="login-box">
+            <div class="user-icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <h2>Welcome Back!</h2>
+            <p>Login with your Stingray ID</p>
+            <div class="input-box">
+                <input type="text" id="username" placeholder="Username">
+            </div>
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Password">
+            </div>
+            <div class="buttons">
+                <button class="create-account-btn" onclick="createAccount()">First time? Create account</button>
+                <button class="login-btn" onclick="login()">Login</button>
+            </div>
         </div>
-        <script src="uv/uv.bundle.js" defer></script>
-        <script src="uv/uv.config.js" defer></script>
-        <script src="register-sw.js" defer></script>
-        <script src="search.js" defer></script>
-        <script src="index.js" defer></script>
-        <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-        <script>
-          eruda.init();
-        </script>
-      </div>
     </div>
-  </div>
 
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/winbox.bundle.min.js" async></script>
-  <script src="assets/js/main.js"></script>
+<style>body {
+  background-image: url("https://e1.pxfuel.com/desktop-wallpaper/933/394/desktop-wallpaper-sand-dunes-desert-landscape-evening-windows-10x-nature-blue-sand.jpg");
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
 
-  <script>
-    document.getElementById('settingsButton').addEventListener('click', function() {
-      window.location.href = 'settings.html';
+.login-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.login-box {
+  width: 300px;
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.user-icon {
+  font-size: 60px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #fff;
+}
+
+p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.input-box {
+  margin-top: 20px;
+}
+
+.input-box input[type="text"],
+.input-box input[type="password"] {
+  display: flex;
+  height: 60px;
+  padding: 0px 12px;
+  align-items: center;
+  gap: 9px;
+  align-self: stretch;
+  border-radius: 9px;
+  background: var(--on-dark-default, rgba(255, 255, 255, 0.08));
+  width: 90%;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons button {
+  flex: 1;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.create-account-btn {
+  display: flex;
+  padding: 15px 36px 22.5px 36px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: 9px;
+  color: #fff;
+  background: var(--on-dark-default, rgba(255, 255, 255, 0.08));
+}
+
+.login-btn {
+  display: flex;
+  padding: 22.5px 36px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: 9px;
+  background: #537A5A;
+  color: #fff;
+}</style>
+
+    <script>
+ var firebaseConfig = {
+        // Add your Firebase project configuration here
+        apiKey: "AIzaSyDOwP73Z8Baz32X6JlW3D7pJPBvCNezja8",
+    authDomain: "stingr-19f41.firebaseapp.com",
+    projectId: "stingr-19f41",
+    storageBucket: "stingr-19f41.appspot.com",
+    messagingSenderId: "530197032398",
+    appId: "1:530197032398:web:c1c24c9fbf7b2dba9b0f9f",
+    measurementId: "G-MQ44XK2YJZ"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    var usernameField = document.getElementById('username');
+    var passwordField = document.getElementById('password');
+
+    // Function to create a new user account
+    function createAccount() {
+        var username = usernameField.value;
+        var password = passwordField.value;
+        
+        firebase.auth().createUserWithEmailAndPassword(username, password)
+            .then(function(userCredential) {
+                // Handle successful account creation
+                console.log('Account created successfully:', userCredential.user);
+                // Redirect or show success message
+            })
+            .catch(function(error) {
+                // Handle account creation errors
+                console.error('Error creating account:', error);
+                // Show error message
+            });
+    }
+
+    // Function to log in an existing user
+    function login() {
+        var username = usernameField.value;
+        var password = passwordField.value;
+
+        firebase.auth().signInWithEmailAndPassword(username, password)
+            .then(function(userCredential) {
+                // Handle successful login
+                alert('User logged in successfully:', userCredential.user);
+                // Redirect or show success message
+            })
+            .catch(function(error) {
+                // Handle login errors
+                console.error('Error logging in:', error);
+                // Show error message
+            });
+    }
+ // Check if user is already logged in
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is logged in, redirect to dashboard
+            window.location.href = "/static/";
+        }
     });
-  </script>
-</body>
-
-</html>
-<script src="//cdn.jsdelivr.net/npm/eruda"></script>
-<script>
-  eruda.init();
 </script>
