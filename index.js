@@ -39,7 +39,7 @@ server.on("upgrade", (req, socket, head) => {
 });
 
 server.on("listening", () => {
-  console.log(`Interstellar running at http://localhost:${process.env.PORT}`);
+  console.log(`Running at http://localhost:${process.env.PORT}`);
 });
 
 server.listen({
