@@ -3,22 +3,23 @@
 
 <head>
   <title>Browser Tabs Example</title>
-    <link rel="preload" href="assets/js/winbox.bundle.min.js" as="script">
+  <link rel="preload" href="assets/js/winbox.bundle.min.js" as="script">
   <script src="static/assets/js/winbox.bundle.min.js"></script>
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="assets/js/main.js"></script>
-   <script src="assets/js/notifications.js"></script>
-   <link href="assets/css/notifications.css" rel="stylesheet" type="text/css" />
-   <link rel="stylesheet" href="https://unpkg.com/eruda/eruda.min.css" />
+  <script src="assets/js/notifications.js"></script>
+  <link href="assets/css/notifications.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://unpkg.com/eruda/eruda.min.css" />
 </head>
 
 <body>
   <div id="notification-container"></div>
-    <div id="topbar">
-      <span id="settingsbtn" class="animate__animated animate__fadeInDown animate__delay-1s">
-        <i class="fa-solid fa-gear"></i>
-      </span>
+  <div id="topbar">
+    <span id="settingsbtn" class="animate__animated animate__fadeInDown animate__delay-1s">
+      <i class="fa-solid fa-gear"></i>
+    </span>
+  </div>
   <div class="browser">
     <div class="sidebar">
       <div class="navigation">
@@ -28,7 +29,7 @@
       </div>
       <input type="text" class="url-bar" placeholder="Enter URL">
       <div class="actions">
-        <button class="action-button settings"><i class="fas fa-cog"></i></button>
+        <button class="action-button settings" id="settingsButton"><i class="fas fa-cog"></i></button>
         <button class="action-button new-tab" id="openButton"><i class="fas fa-external-link-alt"></i></button>
         <button class="action-button copy-url"><i class="fas fa-copy"></i></button>
       </div>
@@ -39,25 +40,25 @@
     </div>
     <div class="tab-content">
       <div id="home" class="tab-panel active">
-          <div class="UVBARFLEX">
-             <form class="UVBAR"id="uv-form">
-            <input class="UVBAR" id="uv-search-engine" value="" type="hidden"/> 
-            <input class="UVBAR" id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input"/>
+        <div class="UVBARFLEX">
+          <form class="UVBAR" id="uv-form">
+            <input class="UVBAR" id="uv-search-engine" value="" type="hidden" />
+            <input class="UVBAR" id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input" />
           </form>
           <div class="UVBARFLEX">
             <p id="uv-error"></p>
             <pre id="uv-error-code"></pre>
           </div>
-      <script src="uv/uv.bundle.js" defer></script>
-      <script src="uv/uv.config.js" defer></script>
-      <script src="register-sw.js" defer></script>
-      <script src="search.js" defer></script>
-      <script src="index.js" defer></script>
-      <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-      <script>eruda.init();</script>
-   </body>
-          </div>
         </div>
+        <script src="uv/uv.bundle.js" defer></script>
+        <script src="uv/uv.config.js" defer></script>
+        <script src="register-sw.js" defer></script>
+        <script src="search.js" defer></script>
+        <script src="index.js" defer></script>
+        <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+        <script>
+          eruda.init();
+        </script>
       </div>
     </div>
   </div>
@@ -65,7 +66,16 @@
   <script src="assets/js/tabs.js"></script>
   <script src="assets/js/winbox.bundle.min.js" async></script>
   <script src="assets/js/main.js"></script>
+
+  <script>
+    document.getElementById('settingsButton').addEventListener('click', function() {
+      window.location.href = 'settings.html';
+    });
+  </script>
 </body>
+
 </html>
 <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-<script>eruda.init();</script>
+<script>
+  eruda.init();
+</script>
