@@ -35,3 +35,13 @@ if (!inFrame && !navigator.userAgent.includes("Firefox")) {
         self.close();
     }
 }
+// Get the reference to the button element
+const openButton = document.getElementById('openButton');
+
+// Add an event listener to the button
+openButton.addEventListener('click', function() {
+  // Create a new WinBox instance when the button is clicked
+  new WinBox("Window Title", {
+    root: document.body
+  });
+});
