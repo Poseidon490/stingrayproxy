@@ -4,15 +4,13 @@ const input = document.getElementById("uv-address");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   window.navigator.serviceWorker
-    .register("../uv-sw.js", {
-      scope: __uv$config.prefix,
-    })
+    .register("../uv-sw.js")
     .then(() => {
       let url = input.value.trim();
       if (!isUrl(url)) url = "https://www.google.com/search?q=" + url;
       else if (!(url.startsWith("https://") || url.startsWith("http://")))
         url = "http://" + url;
-      location.href = __uv$config.prefix + __uv$config.encodeUrl(url)
+      location.href = url;
     });
 });
 
