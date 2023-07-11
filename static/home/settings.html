@@ -1,121 +1,32 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Settings</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-    /* settings.css */
-    body {
-      font-family: 'Roboto', sans-serif;
-    }
-
-    h1 {
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    .settings-container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #f7f7f7;
-    }
-
-    .setting {
-      margin-bottom: 15px;
-    }
-
-    .setting label {
-      font-weight: bold;
-    }
-
-    .setting input[type="text"] {
-      width: 100%;
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
-
-    .btn-container {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .btn-container button {
-      padding: 8px 16px;
-      font-size: 14px;
-      border-radius: 3px;
-      border: none;
-      background-color: #4CAF50;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .btn-container button:hover {
-      background-color: #45a049;
-    }
-  </style>
-  <style>
-    /* Incorporating colors from tabs.css */
-    body {
-      background-image: url(https://e1.pxfuel.com/desktop-wallpaper/933/394/desktop-wallpaper-sand-dunes-desert-landscape-evening-windows-10x-nature-blue-sand.jpg);
-      font-family: Arial, sans-serif;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-
-    .settings-container {
-      background-color: #1C1D20;
-      color: #fff;
-    }
-
-    .settings-container .setting input[type="text"] {
-      background-color: rgba(255, 255, 255, 0.08);
-      color: #fff;
-    }
-
-    .settings-container .setting input[type="text"]:focus {
-      background-color: rgba(255, 255, 255, 0.2);
-      outline: none;
-      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-    }
-
-    .btn-container button {
-      background-color: rgba(255, 255, 255, 0.08);
-      color: #fff;
-    }
-
-    .btn-container button:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="assets/css/settings.css">
 </head>
-
 <body>
-  <div class="settings-container">
+  <div class="container">
     <h1>Settings</h1>
-
-    <div class="setting">
-      <label for="cloak">Cloak:</label>
-      <input type="text" id="cloak" placeholder="Enter your cloak preference">
-    </div>
-
-    <div class="setting">
-      <label for="name">Name:</label>
-      <input type="text" id="name" placeholder="Enter your name">
-    </div>
-
-    <div class="setting">
-      <label for="browser">Browser:</label>
-      <input type="text" id="browser" placeholder="Enter your preferred browser">
+    <div class="row">
+      <div class="card">
+        <div class="card-content">
+          <h2>Cloak</h2>
+          <input type="text" id="cloak" placeholder="Enter your cloak preference">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h2>Name</h2>
+          <input type="text" id="name" placeholder="Enter your name">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h2>Browser</h2>
+          <input type="text" id="browser" placeholder="Enter your preferred browser">
+        </div>
+      </div>
     </div>
   </div>
-
 </body>
-
 </html>
