@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 body {
   background-color: #111;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .row {
@@ -47,14 +47,14 @@ body {
 .title {
   margin-top: 20px;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: bold;
   font-size: 25px;
 }
 
 p {
   margin-top: 6px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
 }
 
@@ -87,7 +87,7 @@ img {
 }
 
 button {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   border: none;
   background-color: #333;
   color: white;
@@ -106,7 +106,7 @@ button:hover {
 
 select,
 input {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   border: none;
   background-color: #333;
   color: white;
@@ -127,7 +127,7 @@ input:focus {
   opacity: 0.6;
 }
 
-input[type="text"] {
+input[type='text'] {
   height: 40px;
   width: 80%;
   margin-bottom: 10px;
