@@ -3,7 +3,6 @@
 
 <head>
   <title>Browser Tabs Example</title>
-  <link rel="preload" href="assets/js/winbox.bundle.min.js" as="script">
   <script src="assets/js/winbox.bundle.min.js"></script>
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -62,15 +61,21 @@
   </div>
 
   <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/winbox.bundle.min.js" async></script>
   <script src="assets/js/main.js"></script>
 
   <script>
     document.getElementById('settingsButton').addEventListener('click', function() {
-      window.location.href = 'settings.html';
+      new WinBox({
+        title: "Settings",
+        class: ["no-full", "no-max", "no-min"],
+        background: "#1C1D20",
+        width: 665,
+        height: 490,
+        html: "<iframe src='settings.html'></iframe>",
+        x: "center",
+        y: "center"
+      });
     });
-
-	addNewTab();
   </script>
 </body>
 
