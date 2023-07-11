@@ -4,8 +4,11 @@
 <head>
   <title>Settings</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+    /* settings.css */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
     }
 
     h1 {
@@ -54,6 +57,41 @@
 
     .btn-container button:hover {
       background-color: #45a049;
+    }
+  </style>
+  <style>
+    /* Incorporating colors from tabs.css */
+    body {
+      background-image: url(https://e1.pxfuel.com/desktop-wallpaper/933/394/desktop-wallpaper-sand-dunes-desert-landscape-evening-windows-10x-nature-blue-sand.jpg);
+      font-family: Arial, sans-serif;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .settings-container {
+      background-color: #1C1D20;
+      color: #fff;
+    }
+
+    .settings-container .setting input[type="text"] {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+
+    .settings-container .setting input[type="text"]:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      outline: none;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-container button {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+
+    .btn-container button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
     }
   </style>
 </head>
