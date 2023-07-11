@@ -64,26 +64,17 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    let settingsWin = null;
     document.getElementById('settingsButton').addEventListener('click', function() {
-      if (settingsWin) {
-        settingsWin.close();
-        settingsWin = null;
-      } else {
-        settingsWin = new WinBox({
-          title: "Settings",
-          class: ["no-full", "no-max", "no-min"],
-          background: "#1C1D20",
-          width: 1500,
-          height: 500,
-          html: "<iframe src='settings.html'></iframe>",
-          x: "center",
-          y: "center",
-          onclose: function() {
-            settingsWin = null;
-          }
-        });
-      }
+      new WinBox({
+        title: "Settings",
+        class: ["no-full", "no-max", "no-min"],
+        background: "#1C1D20",
+        width: 1500,
+        height: 500,
+        html: "<iframe src='settings.html'></iframe>",
+        x: "center",
+        y: "center"
+      });
     });
   </script>
 </body>
