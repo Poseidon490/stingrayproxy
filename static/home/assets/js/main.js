@@ -46,3 +46,25 @@ openButton.addEventListener('click', function() {
   });
 });
 
+function deleter(iframe) {
+    for(var i=0; i<(iframe.document.getElementsByTagName('a')).length; i++) {
+        (iframe.document.getElementsByTagName('a')[i]).style.pointerEvents = 'none';
+    }
+    
+    function handler(e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        target.style.display = 'none';
+        
+        iframe.document.removeEventListener('click', handler, false);
+        cursor('default');
+        
+        for(var i=0; i<(iframe.document.getElementsByTagName('a')).length; i++) {
+            (iframe.document.getElementsByTagName('a')[i]).style.pointerEvents = 'initial';
+        }
+    }
+    
+    iframe.document.addEventListener('click', handler, false);
+    cursor('crosshair');
+    function cursor(cur) { iframe.document.body.style.cursor = cur; }
+}
