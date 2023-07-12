@@ -30,7 +30,7 @@ function addNewTab() {
   iframe.style.height = '100%';
   iframe.style.border = 'none';
   iframe.innerHTML = ` <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-      <script>eruda.init();</script> `
+      <script>eruda.init();</script> <script src="blocker.js" defer></script>`
   tabPanel.appendChild(iframe);
   iframe.addEventListener('load', () => {
     const title = iframe.contentDocument.title;
