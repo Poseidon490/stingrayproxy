@@ -68,6 +68,3 @@ function deleter(iframe) {
     cursor('crosshair');
     function cursor(cur) { iframe.document.body.style.cursor = cur; }
 }
-      var iframe = document.getElementById('tabsframe').contentWindow;
-      deleter(iframe);
-    }
