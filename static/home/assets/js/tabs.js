@@ -29,7 +29,6 @@ function addNewTab() {
   iframe.style.width = '100%';
   iframe.style.height = '100%';
   iframe.style.border = 'none';
-  iframe.contentDocument.body.appendChild(document.createElement('script')).src = 'blocker.js';
   iframe.innerHTML = ` <script src="//cdn.jsdelivr.net/npm/eruda"></script>
       <script>eruda.init();</script>`
   tabPanel.appendChild(iframe);
