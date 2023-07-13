@@ -36,20 +36,35 @@ function addNewTab() {
   iframe.style.width = '100%';
   iframe.style.height = '100%';
   iframe.style.border = 'none';
-  iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin'); // Add sandbox attribute to the iframe
+  iframe.innerHTML = ` <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+      <script>eruda.init();</script>`;
   tabPanel.appendChild(iframe);
   iframe.addEventListener('load', () => {
+    const title = iframe.contentDocument.title;
+    tabButton.innerHTML = title + ` <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
+
+    // Retrieve the search form inside the iframe
     const searchForm = iframe.contentDocument.getElementById('uv-form');
+
+    // Add event listener to the search form submit event
     searchForm.addEventListener('submit', (event) => {
-      event.preventDefault(); // Prevent form submission
+      // Prevent the form submission
+      event.preventDefault();
+
+      // Retrieve the search query from the input field
       const searchInput = iframe.contentDocument.getElementById('uv-address');
       const searchQuery = searchInput.value.trim();
+
       if (searchQuery) {
-        // Handle the search query within the iframe
-        // You can update the iframe source or perform the search operation using your proxy server
+        // Handle the search query within the iframe as desired
         console.log(`Search query: ${searchQuery}`);
       }
     });
+  });
+  document.querySelector('.tab-content').appendChild(tabPanel);
+  tabCount++;
+}
+
 
     const title = iframe.contentDocument.title;
     tabButton.innerHTML = title + ` <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
