@@ -1,4 +1,10 @@
 // tabs.js
+window.addEventListener('DOMContentLoaded', () => {
+  addNewTab(); // Add a new tab
+  const newTabId = `tab${tabCount - 1}`; // Get the ID of the newly added tab
+  const newTabButton = document.querySelector(`[onclick="openTab(event, '${newTabId}')"]`);
+  newTabButton.classList.add('active'); // Set the new tab as active
+});
 let tabCount = 2; // Start tab count from 2 since home is initially loaded as tab 1
 function openTab(event, tabId) {
   const tabContent = document.getElementsByClassName('tab-panel');
