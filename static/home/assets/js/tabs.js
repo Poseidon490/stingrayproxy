@@ -1,10 +1,4 @@
 // tabs.js
-window.addEventListener('DOMContentLoaded', () => {
-  addNewTab(); // Add a new tab
-  const newTabId = `tab${tabCount - 1}`; // Get the ID of the newly added tab
-  const newTabButton = document.querySelector(`[onclick="openTab(event, '${newTabId}')"]`);
-  newTabButton.classList.add('active'); // Set the new tab as active
-});
 let tabCount = 2; // Start tab count from 2 since home is initially loaded as tab 1
 function openTab(event, tabId) {
   const tabContent = document.getElementsByClassName('tab-panel');
@@ -23,7 +17,7 @@ function addNewTab() {
   const tabButton = document.createElement('button');
   const newTabId = `tab${tabCount}`;
   tabButton.className = 'tab';
-  tabButton.setAttribute('onclick', `openTab(event, '${newTabId}'); return false;`);
+  tabButton.setAttribute('onclick', `openTab(event, '${newTabId}')`);
   tabButton.innerHTML = `Tab ${tabCount} <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
   tabList.appendChild(tabButton);
   const tabPanel = document.createElement('div');
@@ -37,42 +31,15 @@ function addNewTab() {
   iframe.style.height = '100%';
   iframe.style.border = 'none';
   iframe.innerHTML = ` <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-      <script>eruda.init();</script>`;
+      <script>eruda.init();</script>`
   tabPanel.appendChild(iframe);
   iframe.addEventListener('load', () => {
     const title = iframe.contentDocument.title;
     tabButton.innerHTML = title + ` <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
-
-    // Retrieve the search form inside the iframe
-    const searchForm = iframe.contentDocument.getElementById('uv-form');
-
-    // Add event listener to the search form submit event
-    searchForm.addEventListener('submit', (event) => {
-      // Prevent the form submission
-      event.preventDefault();
-
-      // Retrieve the search query from the input field
-      const searchInput = iframe.contentDocument.getElementById('uv-address');
-      const searchQuery = searchInput.value.trim();
-
-      if (searchQuery) {
-        // Handle the search query within the iframe as desired
-        console.log(`Search query: ${searchQuery}`);
-      }
-    });
   });
   document.querySelector('.tab-content').appendChild(tabPanel);
   tabCount++;
 }
-
-
-    const title = iframe.contentDocument.title;
-    tabButton.innerHTML = title + ` <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
-  });
-  document.querySelector('.tab-content').appendChild(tabPanel);
-  tabCount++;
-}
-
 function closeTab(event) {
   event.stopPropagation();
   const tabButton = event.target.closest('.tab');
@@ -81,9 +48,15 @@ function closeTab(event) {
   tabContent.parentNode.removeChild(tabContent);
   tabButton.parentNode.removeChild(tabButton);
 }
-// Event listener for the home tab
-document.getElementById('tab1').addEventListener('click', (event) => {
-  openTab(event, 'tab1');
-});
+function initializeTabs() {
+  addNewTab(); // Create the new tab
+  const tabButton = document.querySelector('.tab'); // Get the newly created tab button
+  const tabId = tabButton.getAttribute('onclick').match(/'([^']+)'/)[1]; // Get the tab ID
+  openTab({ currentTarget: tabButton }, tabId); // Activate the new tab
+}
+
+// Call the initializeTabs function when the page loads
+window.addEventListener('load', initializeTabs);
+
 // Event listener for the "Add Tab" button
 document.querySelector('.add-tab-button').addEventListener('click', addNewTab);
