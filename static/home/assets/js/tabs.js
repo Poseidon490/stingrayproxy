@@ -48,5 +48,9 @@ function closeTab(event) {
   tabContent.parentNode.removeChild(tabContent);
   tabButton.parentNode.removeChild(tabButton);
 }
+// Event listener for the home tab
+document.getElementById('tab1').addEventListener('click', (event) => {
+  openTab(event, 'tab1');
+});
 // Event listener for the "Add Tab" button
 document.querySelector('.add-tab-button').addEventListener('click', addNewTab);
