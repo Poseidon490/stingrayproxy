@@ -20,26 +20,54 @@ function addNewTab() {
   tabButton.setAttribute('onclick', `openTab(event, '${newTabId}')`);
   tabButton.innerHTML = `Tab ${tabCount} <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
   tabList.appendChild(tabButton);
+
   const tabPanel = document.createElement('div');
   tabPanel.className = 'tab-panel';
   tabPanel.id = newTabId;
   tabPanel.style.height = '100%'; // Set parent height to 100%
-  const iframe = document.createElement('iframe');
-  iframe.id = 'tabsframe';
-  iframe.src = '/home/tabs.html';
-  iframe.style.width = '100%';
-  iframe.style.height = '100%';
-  iframe.style.border = 'none';
-  iframe.innerHTML = ` <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-      <script>eruda.init();</script>`
-  tabPanel.appendChild(iframe);
-  iframe.addEventListener('load', () => {
-    const title = iframe.contentDocument.title;
-    tabButton.innerHTML = title + ` <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
-  });
+
+  if (newTabId === 'tab1') {
+    // Special rule for tab1
+    const searchBar = document.createElement('input');
+    searchBar.className = 'search-bar';
+    searchBar.type = 'text';
+    searchBar.placeholder = 'Search Google or type a URL';
+    tabPanel.appendChild(searchBar);
+
+    // Load the content from 'tabs.html' into tab1
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'tabs.html', true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        const tabsContent = xhr.responseText;
+        tabPanel.innerHTML += tabsContent;
+        // Call eruda.init() after loading the content
+        eruda.init();
+      }
+    };
+    xhr.send();
+  } else {
+    // Normal rule for other tabs
+    const iframe = document.createElement('iframe');
+    iframe.id = 'tabsframe';
+    iframe.src = '/home/tabs.html';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    iframe.innerHTML = ` <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+      <script>eruda.init();</script>`;
+    tabPanel.appendChild(iframe);
+
+    iframe.addEventListener('load', () => {
+      const title = iframe.contentDocument.title;
+      tabButton.innerHTML = title + ` <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
+    });
+  }
+
   document.querySelector('.tab-content').appendChild(tabPanel);
   tabCount++;
 }
+
 function closeTab(event) {
   event.stopPropagation();
   const tabButton = event.target.closest('.tab');
