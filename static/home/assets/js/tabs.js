@@ -48,15 +48,5 @@ function closeTab(event) {
   tabContent.parentNode.removeChild(tabContent);
   tabButton.parentNode.removeChild(tabButton);
 }
-function initializeTabs() {
-  addNewTab(); // Create the new tab
-  const tabButton = document.querySelector('.tab'); // Get the newly created tab button
-  const tabId = tabButton.getAttribute('onclick').match(/'([^']+)'/)[1]; // Get the tab ID
-  openTab({ currentTarget: tabButton }, tabId); // Activate the new tab
-}
-
-// Call the initializeTabs function when the page loads
-window.addEventListener('load', initializeTabs);
-
 // Event listener for the "Add Tab" button
 document.querySelector('.add-tab-button').addEventListener('click', addNewTab);
