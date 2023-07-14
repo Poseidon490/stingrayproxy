@@ -12,8 +12,9 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 9vh;
+  margin-top: 10px; 
 }
+
 
 .card {
   transition: 0.3s;
@@ -25,7 +26,9 @@ body {
   border: none;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px;
 }
+
 
 .card:hover {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.08),
