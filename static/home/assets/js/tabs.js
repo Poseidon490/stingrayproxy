@@ -51,6 +51,9 @@ function closeTab(event) {
 // Event listener for the home tab
 document.getElementById('tab1').addEventListener('click', (event) => {
   openTab(event, 'tab1');
+  document.getElementById('tab1').style.display = 'block'; // Add this line
+});
+
 });
 // Event listener for the "Add Tab" button
 document.querySelector('.add-tab-button').addEventListener('click', addNewTab);
