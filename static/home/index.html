@@ -22,9 +22,17 @@
   <div class="browser">
     <div class="sidebar">
       <div class="navigation">
-        <button class="arrow back"><i class="fas fa-chevron-left"></i></button>
+        <button class="key"><i class="fas fa-chevron-left"></i></button>
         <button class="arrow forward"><i class="fas fa-chevron-right"></i></button>
-        <button class="refresh"><i class="fas fa-sync-alt"></i></button>
+            <button class="refresh" onclick="refreshIframe()">
+      <i class="fas fa-sync-alt"></i>
+    </button>
+            <script>
+      function refreshIframe() {
+        var iframe = document.getElementById('your-iframe');
+        iframe.contentDocument.location.reload(true);
+      }
+    </script>
       </div>
       <input type="text" class="url-bar" placeholder="Enter URL">
       <div class="actions">
