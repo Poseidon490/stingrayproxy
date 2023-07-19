@@ -26,7 +26,7 @@ function addNewTab() {
   tabPanel.style.height = '100%'; // Set parent height to 100%
   const iframe = document.createElement('iframe');
   iframe.id = 'tabsframe';
-  iframe.src = '/home/tabs.html';
+  iframe.src = 'static/tabs.html';
   iframe.style.width = '100%';
   iframe.style.height = '100%';
   iframe.style.border = 'none';
