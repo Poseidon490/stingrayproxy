@@ -1,9 +1,12 @@
-import { createBareServer } from "@tomphttp/bare-server-node";
+import compression from "compression";
 import express from "express";
-import { createServer } from "node:http";
+import { createServer } from "http";
+import { publicPath } from "ultraviolet-static";
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
-import { join } from "node:path";
-import { hostname } from "node:os";
+import { join } from "path";
+import { hostname } from "os";
+import cors from "cors";
+import createBareServer from "@tomphttp/bare-server-node";
 
 const bare = createBareServer("/bare/");
 const app = express();
