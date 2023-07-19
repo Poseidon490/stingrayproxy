@@ -174,14 +174,13 @@
       </div>
     </div>
   </div>
-  <div class="title">
+    <div class="title">
     <h4><b>Save Settings</b></h4>
   </div>
   <button onclick="saveSettings()">Save</button>
   <div id="output"></div>
 
   <script>
-
     // Function to save settings in Local Storage
     function saveSettings() {
       var panicKeyInput = document.getElementById('panicKeyInput').value.trim().toLowerCase();
@@ -201,7 +200,48 @@
       alert('Settings saved successfully!');
     }
 
-    // Event listener for the "keydown" event should be outside the "DOMContentLoaded" event
+    // Function to apply settings from Local Storage to the page elements
+    function applySettings() {
+      var settingsData = localStorage.getItem('settings');
+      if (settingsData) {
+        settingsData = JSON.parse(settingsData);
+
+        // Apply the settings to your page elements
+        var panicKeyInput = document.getElementById('panicKeyInput');
+        panicKeyInput.value = settingsData.panicKey;
+
+        var titleInput = document.getElementById('title');
+        titleInput.value = settingsData.pageTitle;
+
+        // Apply other settings variables here if needed
+      }
+    }
+
+    // Call the function to apply settings when the page loads
+    window.onload = function () {
+      applySettings();
+    };
+
+    function injectCode() {
+      // Your existing code for injecting CSS and JS...
+    }
+
+    function toggleEruda() {
+      // Your existing code for toggling Eruda...
+    }
+
+    function setTitle(title) {
+      document.title = title;
+    }
+
+    function setFavicon(url) {
+      // Your existing code for setting the favicon...
+    }
+
+    function resetTab() {
+      location.reload();
+    }
+
     document.addEventListener('keydown', function (event) {
       var panicKeyInput = document.getElementById('panicKeyInput');
       var panicKey = panicKeyInput.value.trim().toLowerCase();
@@ -216,6 +256,7 @@
           window.location.href = websiteURL;
         }
       }
+      
     function injectCode() {
       var cssCode = document.getElementById('cssInput').value;
       var jsCode = document.getElementById('jsInput').value;
