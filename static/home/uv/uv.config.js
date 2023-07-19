@@ -1,10 +1,10 @@
 self.__uv$config = {
     prefix: '/service/',
-    bare: 'https://astroid.gg/bare/',
+    bare: 'https://use.astroid.wtf/bare/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
-    handler: '/uv/uv.handler.js',
-    bundle: '/uv/uv.bundle.js',
-    config: '/uv/uv.config.js',
-    sw: '/uv/uv.sw.js',
+    handler: '/static/home/uv-bacxkup/uv.handler.js',
+    bundle: '/static/home/uv-bacxkup/uv.bundle.js',
+    config: '/static/home/uv-bacxkup/uv.config.js',
+    sw: '/static/uv-sw.js',
 };
