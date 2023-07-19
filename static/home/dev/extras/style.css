@@ -1,0 +1,128 @@
+body {
+  background-image: url('https://media.discordapp.net/attachments/1125121236180152412/1125161670285738107/Screen.png?width=850&height=604');
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333437;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  margin-right: 20px;
+  margin-left: 110px;
+}
+
+header .logo h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-left: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul li a.active {
+  font-weight: bold;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.app-bar {
+  background-color: rgba(28, 29, 32, 0.8);
+  border-radius: 20px;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+
+}
+
+.app {
+  width: calc(20% - 20px);
+  margin: 10px;
+  position: relative;
+  padding-left: 20px;
+  overflow: hidden;
+}
+
+.app-link {
+  display: block;
+  position: relative;
+}
+
+.app-icon {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.app:hover .app-icon {
+  transform: scale(1.1);
+}
+
+.app-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 300px;
+  height: 70%;
+  color: #fff;
+  opacity: 0;
+  border-radius: 20px;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto, sans-serif;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0px;
+
+}
+
+.app:hover .app-overlay {
+  opacity: 1;
+}
+
+.app-title {
+  font-size: 24px;
+  margin-bottom: 0px;
+}
+
+.app-description {
+  font-size: 14px;
+  text-align: center;
+}

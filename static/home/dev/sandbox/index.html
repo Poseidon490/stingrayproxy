@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Live Code Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Developer Dashboard</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Dashboard</a></li>
+                <li><a href="/sandbox/index.html" class="active">Editor</a></li>
+                <li><a href="/apps/index.html">Apps</a></li>
+                <li><a href="#">Extras</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="code-editor">
+        <div class="code">
+            <div class="html-code">
+                <h2><img src="images/html.png" alt="">HTML</h2>
+                <textarea></textarea>
+            </div>
+            <div class="css-code">
+                <h2><img src="images/CSS.png" alt="">CSS</h2>
+                <textarea></textarea>
+            </div>
+            <div class="js-code">
+                <h2><img src="images/js.png" alt="">JS</h2>
+                <textarea spellcheck="false"></textarea>
+            </div>
+        </div>
+        <iframe id="result"></iframe>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

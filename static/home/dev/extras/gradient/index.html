@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Gradient colors | Kundanaks.ak</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a href="/extras/index.html"><button class="coc" >Back</button></a>
+  <div class="wrapper">
+    <div class="gradient-box"></div>
+    <div class="row options">
+      <div class="column direction">
+        <p>Direction</p>
+        <div class="select-box">
+          <select>
+            <option value="to top">Top</option>
+            <option value="to right top">Right top</option>
+            <option value="to right">Right</option>
+            <option value="to right bottom">Right bottom</option>
+            <option value="to bottom">Bottom</option>
+            <option value="to left bottom">Left bottom</option>
+            <option value="to left">Left</option>
+            <option value="to left top" selected>Left top</option>
+          </select>
+        </div>
+      </div>
+      <div class="column palette">
+        <p>Colors</p>
+        <div class="colors">
+          <input type="color" value="#5665E9" class="clr">
+          <input type="color" value="#A271F8" class="clr">
+        </div>
+      </div>
+    </div>
+    <textarea class="row" disabled>background: linear-gradient(to left top, #977DFE,  #6878FF);</textarea>
+    <div class="row buttons">
+      <button class="refresh">Refresh Colors</button>
+      <button class="copy">Copy Code</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
