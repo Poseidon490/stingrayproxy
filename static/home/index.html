@@ -93,29 +93,29 @@
       }
     });
   </script>
-    <script>
-    // Function to retrieve settings from Local Storage and apply them
-    function applySettings() {
-      var settingsData = localStorage.getItem('settings');
-      if (settingsData) {
-        settingsData = JSON.parse(settingsData);
+<script>
+  // Call the function to apply settings when the page loads
+  window.onload = function () {
+    applySettings();
+  };
 
-        // Apply the settings to your page elements
-        var panicKeyInput = document.getElementById('panicKeyInput');
-        panicKeyInput.value = settingsData.panicKey;
+  // Function to retrieve settings from Local Storage and apply them
+  function applySettings() {
+    var settingsData = localStorage.getItem('settings');
+    if (settingsData) {
+      settingsData = JSON.parse(settingsData);
 
-        var titleInput = document.getElementById('title');
-        titleInput.value = settingsData.pageTitle;
+      // Apply the settings to your page elements
+      var panicKeyInput = document.getElementById('panicKeyInput');
+      panicKeyInput.value = settingsData.panicKey;
 
-        // Apply other settings variables here if needed
-      }
+      var titleInput = document.getElementById('title');
+      titleInput.value = settingsData.pageTitle;
+
+      // Apply other settings variables here if needed
     }
-
-    // Call the function to apply settings when the page loads
-    window.onload = function () {
-      applySettings();
-    };
-  </script>
+  }
+</script>
 </body>
 
 </html>
