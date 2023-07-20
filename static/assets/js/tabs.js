@@ -38,6 +38,15 @@ function addNewTab() {
     tabButton.innerHTML = title + ` <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
   });
   document.querySelector('.tab-content').appendChild(tabPanel);
+
+  // Make the newly created tab active
+  const tabLinks = document.getElementsByClassName('tab');
+  for (let i = 0; i < tabLinks.length; i++) {
+    tabLinks[i].className = tabLinks[i].className.replace(' active', '');
+  }
+  tabButton.className += ' active';
+  tabPanel.style.display = 'block';
+
   tabCount++;
 }
 function closeTab(event) {
