@@ -40,19 +40,8 @@ function addNewTab() {
   document.querySelector('.tab-content').appendChild(tabPanel);
   tabCount++;
 
-  // Add the openTab function to switch to the newly created tab
-  function openTab(event, tabId) {
-    const tabContent = document.getElementsByClassName('tab-panel');
-    for (let i = 0; i < tabContent.length; i++) {
-      tabContent[i].style.display = 'none';
-    }
-    const tabLinks = document.getElementsByClassName('tab');
-    for (let i = 0; i < tabLinks.length; i++) {
-      tabLinks[i].className = tabLinks[i].className.replace(' active', '');
-    }
-    document.getElementById(tabId).style.display = 'block';
-    event.currentTarget.className += ' active';
-  }
+  // Switch to the newly created tab
+  openTab({ currentTarget: tabButton }, newTabId);
 }
 function closeTab(event) {
   event.stopPropagation();
