@@ -4,7 +4,7 @@ const input = document.getElementById("uv-address");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   window.navigator.serviceWorker
-    .register("home/sw.js", {
+    .register("/sw.js", {
       scope: __uv$config.prefix,
     })
     .then(() => {
