@@ -38,16 +38,21 @@ function addNewTab() {
     tabButton.innerHTML = title + ` <span class="close-button" onclick="closeTab(event)"><i class="fas fa-times"></i></span>`;
   });
   document.querySelector('.tab-content').appendChild(tabPanel);
-
-  // Make the newly created tab active
-  const tabLinks = document.getElementsByClassName('tab');
-  for (let i = 0; i < tabLinks.length; i++) {
-    tabLinks[i].className = tabLinks[i].className.replace(' active', '');
-  }
-  tabButton.className += ' active';
-  tabPanel.style.display = 'block';
-
   tabCount++;
+
+  // Add the openTab function to switch to the newly created tab
+  function openTab(event, tabId) {
+    const tabContent = document.getElementsByClassName('tab-panel');
+    for (let i = 0; i < tabContent.length; i++) {
+      tabContent[i].style.display = 'none';
+    }
+    const tabLinks = document.getElementsByClassName('tab');
+    for (let i = 0; i < tabLinks.length; i++) {
+      tabLinks[i].className = tabLinks[i].className.replace(' active', '');
+    }
+    document.getElementById(tabId).style.display = 'block';
+    event.currentTarget.className += ' active';
+  }
 }
 function closeTab(event) {
   event.stopPropagation();
